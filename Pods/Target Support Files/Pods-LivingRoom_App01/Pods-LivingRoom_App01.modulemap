@@ -1,0 +1,6 @@
+framework module Pods_LivingRoom_App01 {
+  umbrella header "Pods-LivingRoom_App01-umbrella.h"
+
+  export *
+  module * { export * }
+}

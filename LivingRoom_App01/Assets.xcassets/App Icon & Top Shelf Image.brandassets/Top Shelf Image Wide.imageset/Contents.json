@@ -1,0 +1,28 @@
+{
+  "images" : [
+    {
+      "filename" : "App01的副本.png",
+      "idiom" : "tv",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "App01.png",
+      "idiom" : "tv",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "App01的副本-1.png",
+      "idiom" : "tv-marketing",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "App01-1.png",
+      "idiom" : "tv-marketing",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
