@@ -6,12 +6,34 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
 
+    private lazy var player: AVPlayer = {
+        let player = AVPlayer()
+        return player
+    }()
+    
+    private lazy var playerLayer: AVPlayerLayer = {
+        let playerLayer = AVPlayerLayer.init()
+        playerLayer.frame = self.view.bounds
+        playerLayer.backgroundColor = UIColor.black.cgColor
+        playerLayer.videoGravity = .resizeAspect
+        return playerLayer
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        view.layer.addSublayer(playerLayer)
+        
+        playerLayer.player = player
+        
+        let item = AVPlayerItem(url: URL(string: "https://iptv-org.github.io/iptv/channels/cn.m3u")!)
+        player.replaceCurrentItem(with: item)
+        player.play()
     }
 
 
