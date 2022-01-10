@@ -9,18 +9,23 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController {
-
-    private lazy var player: AVPlayer = {
-        let player = AVPlayer()
-        return player
-    }()
     
     private lazy var playerLayer: AVPlayerLayer = {
-        let playerLayer = AVPlayerLayer.init()
+        let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = self.view.bounds
         playerLayer.backgroundColor = UIColor.black.cgColor
         playerLayer.videoGravity = .resizeAspect
         return playerLayer
+    }()
+    
+    private lazy var item: AVPlayerItem = {
+        let item = AVPlayerItem(url: URL(string: "http://39.134.39.39/PLTV/88888888/224/3221226224/index.m3u8")!)
+        return item
+    }()
+
+    private lazy var player: AVPlayer = {
+        let player = AVPlayer(playerItem: item)
+        return player
     }()
     
     
@@ -29,10 +34,6 @@ class ViewController: UIViewController {
         
         view.layer.addSublayer(playerLayer)
         
-        playerLayer.player = player
-        
-        let item = AVPlayerItem(url: URL(string: "https://iptv-org.github.io/iptv/channels/cn.m3u")!)
-        player.replaceCurrentItem(with: item)
         player.play()
     }
 
